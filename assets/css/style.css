@@ -1,0 +1,1784 @@
+/* ===================================================================
+   STYLE.CSS - Robô Fofoqueiro (Arquivo Principal)
+   ===================================================================
+   Este arquivo importa todos os módulos CSS do projeto.
+   ===================================================================
+*/
+
+/* Importa todos os módulos CSS */
+@import url("base.css");
+@import url("components.css");
+@import url("pages.css");
+@import url("simulators.css");
+
+/* ===================================================================
+   NOTA: Para desenvolvimento local, certifique-se que todos os 
+   arquivos CSS estão na mesma pasta:
+   
+   assets/css/
+   ├── style.css      (este arquivo - principal)
+   ├── base.css       (variáveis, reset, tipografia)
+   ├── components.css (menus, cards, botões, tabs)
+   ├── pages.css      (estilos específicos por página)
+   └── simulators.css (simuladores interativos)
+   ===================================================================
+*/
+
+/* ===================================================================
+   MENU SUPERIOR - RESPONSIVO E ORGANIZADO
+   ===================================================================
+*/
+
+.menu-projeto-principal {
+  background: var(--grad-grafite);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 3px solid #f39c12;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+
+.menu-projeto-principal .container-fluid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+/* Logo / Brand */
+.menu-projeto-principal .navbar-brand {
+  color: var(--branco) !important;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.3px;
+  margin-bottom: 0.25rem;
+  text-align: center;
+  width: auto;
+}
+
+/* Botão Toggler - Mobile */
+.menu-projeto-principal .navbar-toggler {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 0.5rem;
+  transition: all var(--transition-base);
+}
+
+.menu-projeto-principal .navbar-toggler:hover {
+  background-color: rgba(243, 156, 18, 0.3);
+  border-color: #f39c12;
+}
+
+.menu-projeto-principal .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Navegação colapsável */
+.menu-projeto-principal .navbar-collapse {
+  width: 100%;
+  transition: all var(--transition-slow);
+}
+
+.menu-projeto-principal .navbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.menu-projeto-principal .nav-item {
+  margin: 0;
+}
+
+.menu-projeto-principal .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 600;
+  border-radius: var(--border-radius-pill);
+  transition: all var(--transition-base);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.menu-projeto-principal .nav-link i {
+  margin-right: 6px;
+  font-size: 0.9rem;
+}
+
+.menu-projeto-principal .nav-link:hover,
+.menu-projeto-principal .nav-link.active-projeto {
+  background: rgba(243, 156, 18, 0.2);
+  color: #ffdd99 !important;
+  transform: translateY(-2px);
+}
+
+/* ====== RESPONSIVIDADE DO MENU ====== */
+
+/* Desktop Grande (até 1400px) - mantém em linha com scroll suave */
+@media (max-width: 1400px) {
+  .menu-projeto-principal .navbar-nav {
+    gap: 0.2rem;
+  }
+
+  .menu-projeto-principal .nav-link {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .menu-projeto-principal .nav-link i {
+    font-size: 0.85rem;
+    margin-right: 4px;
+  }
+}
+
+/* Desktop Médio (até 1200px) - compacta ainda mais */
+@media (max-width: 1200px) {
+  .menu-projeto-principal .navbar-nav {
+    gap: 0.15rem;
+  }
+
+  .menu-projeto-principal .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+  }
+
+  .menu-projeto-principal .nav-link i {
+    font-size: 0.8rem;
+  }
+
+  .brand-text-principal {
+    font-size: 1rem;
+  }
+
+  .sub-brand-principal {
+    font-size: 0.6rem;
+  }
+
+  .robo-icon-principal {
+    font-size: 1.6rem;
+  }
+}
+
+/* Tablet (até 992px) - começa a embrulhar itens em múltiplas linhas */
+@media (max-width: 992px) {
+  .menu-projeto-principal .container-fluid {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .menu-projeto-principal .navbar-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+    max-width: 100%;
+  }
+
+  .menu-projeto-principal .nav-link {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+
+  .menu-projeto-principal .nav-link i {
+    font-size: 0.75rem;
+    margin-right: 3px;
+  }
+}
+
+/* Mobile Grande (até 768px) - menu colapsável ativado */
+@media (max-width: 768px) {
+  .menu-projeto-principal .container-fluid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-projeto-principal .navbar-brand {
+    margin-bottom: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .menu-projeto-principal .navbar-toggler {
+    display: block;
+  }
+
+  .menu-projeto-principal .navbar-collapse {
+    display: none;
+    width: 100%;
+    order: 3;
+    margin-top: 0.75rem;
+  }
+
+  .menu-projeto-principal .navbar-collapse.show {
+    display: block;
+  }
+
+  .menu-projeto-principal .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    width: 100%;
+  }
+
+  .menu-projeto-principal .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-projeto-principal .nav-link {
+    display: inline-block;
+    width: auto;
+    min-width: 180px;
+    text-align: center;
+    white-space: normal;
+    word-break: keep-all;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .menu-projeto-principal .nav-link i {
+    font-size: 0.9rem;
+    margin-right: 8px;
+  }
+
+  .brand-text-principal {
+    font-size: 1rem;
+  }
+
+  .sub-brand-principal {
+    font-size: 0.65rem;
+  }
+
+  .robo-icon-principal {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile Pequeno (até 576px) - ajustes finos */
+@media (max-width: 576px) {
+  .menu-projeto-principal .container-fluid {
+    padding: 0.5rem;
+  }
+
+  .menu-projeto-principal .navbar-brand {
+    gap: 0.35rem;
+  }
+
+  .brand-text-principal {
+    font-size: 0.85rem;
+  }
+
+  .sub-brand-principal {
+    font-size: 0.55rem;
+  }
+
+  .robo-icon-principal {
+    font-size: 1.4rem;
+  }
+
+  .menu-projeto-principal .nav-link {
+    min-width: 150px;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .menu-projeto-principal .nav-link i {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile Extra Pequeno (até 400px) */
+@media (max-width: 400px) {
+  .menu-projeto-principal .navbar-brand {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .brand-text-principal {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .sub-brand-principal {
+    font-size: 0.5rem;
+  }
+
+  .menu-projeto-principal .nav-link {
+    min-width: 130px;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  .menu-projeto-principal .nav-link i {
+    font-size: 0.75rem;
+  }
+}
+
+/* Suporte para telas muito pequenas (320px) */
+@media (max-width: 320px) {
+  .menu-projeto-principal .nav-link {
+    min-width: 110px;
+    font-size: 0.65rem;
+    padding: 0.3rem 0.5rem;
+  }
+}
+
+/* ===================================================================
+   MARCA/LOGO
+   ===================================================================
+*/
+
+.brand-text-principal {
+  font-size: 1.3rem;
+  line-height: 1.2;
+  display: inline-block;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: var(--branco) !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  font-weight: 800;
+}
+
+.brand-text-principal span {
+  color: #ffffff !important;
+  background: none !important;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.sub-brand-principal {
+  font-size: 0.7rem;
+  opacity: 0.95;
+  font-weight: 500;
+  color: #ffdd99 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.robo-icon-principal {
+  font-size: 2.2rem;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+  color: #f39c12;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.navbar-brand>div {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================================================================
+   AULA 6 - DISPLAY LCD E LEDs (Estilos Específicos)
+   ===================================================================
+*/
+
+/* Display LCD Simulado */
+#displayLcdSimulado {
+  font-family: "Courier New", monospace;
+  font-size: 1.2rem;
+  background-color: #0d1117 !important;
+  color: #00ff9d !important;
+  border: 2px solid #2d3748 !important;
+  box-shadow: inset 0 0 10px rgba(0, 255, 157, 0.2);
+  letter-spacing: 1px;
+}
+
+#displayLcdSimulado br {
+  display: none;
+}
+
+/* LED RGB Simulado */
+#ledRgbSimulado {
+  background: linear-gradient(135deg, #1a1a2e, #0f0f1a) !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#ledLuz {
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#ledLuz.led-vermelho {
+  background: #ff0000 !important;
+  box-shadow:
+    0 0 20px #ff0000,
+    0 0 40px rgba(255, 0, 0, 0.5);
+}
+
+#ledLuz.led-verde {
+  background: #00ff00 !important;
+  box-shadow:
+    0 0 20px #00ff00,
+    0 0 40px rgba(0, 255, 0, 0.5);
+}
+
+#ledLuz.led-azul {
+  background: #0000ff !important;
+  box-shadow:
+    0 0 20px #0000ff,
+    0 0 40px rgba(0, 0, 255, 0.5);
+}
+
+#ledLuz.led-amarelo {
+  background: #ffff00 !important;
+  box-shadow:
+    0 0 20px #ffff00,
+    0 0 40px rgba(255, 255, 0, 0.5);
+}
+
+#ledLuz.led-roxo {
+  background: #ff00ff !important;
+  box-shadow:
+    0 0 20px #ff00ff,
+    0 0 40px rgba(255, 0, 255, 0.5);
+}
+
+#ledLuz.led-ciano {
+  background: #00ffff !important;
+  box-shadow:
+    0 0 20px #00ffff,
+    0 0 40px rgba(0, 255, 255, 0.5);
+}
+
+#ledLuz.led-desligado {
+  background: #333333 !important;
+  box-shadow: none;
+}
+
+/* Status do LED */
+#ledStatus {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* Botões do simulador de som */
+#btnSomSilencio:hover,
+#btnSomNormal:hover,
+#btnSomAlto:hover,
+#btnSomMuitoAlto:hover {
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+#btnSomSilencio:active,
+#btnSomNormal:active,
+#btnSomAlto:active,
+#btnSomMuitoAlto:active {
+  transform: scale(0.96);
+}
+
+/* Botão de teste aleatório */
+#btnTesteAleatorio {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  transition: all 0.2s ease;
+  padding: 10px 24px;
+  font-weight: 600;
+}
+
+#btnTesteAleatorio:hover {
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+#btnTesteAleatorio:active {
+  transform: scale(0.98);
+}
+
+/* Animação de pisca do LED */
+@keyframes ledPisca {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+}
+
+.led-piscando {
+  animation: ledPisca 0.3s ease-in-out 3;
+}
+
+/* Card do simulador */
+#conteudoSimulador .card {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+#conteudoSimulador .card-header {
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  border-bottom: 2px solid #f39c12;
+}
+
+/* Área do simulador */
+.simulador-fala {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.simulador-fala:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Robô ASCII animado */
+.robo-ascii-animado {
+  font-size: 2rem;
+  font-family: monospace;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 30px;
+  padding: 10px;
+  display: inline-block;
+  animation: floatRobo 3s infinite;
+}
+
+@keyframes floatRobo {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Alertas customizados */
+.alert-warning {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border: none;
+  border-left: 4px solid #d97706;
+  border-radius: 12px;
+}
+
+/* Responsividade para Aula 6 */
+@media (max-width: 768px) {
+  #displayLcdSimulado {
+    font-size: 0.8rem !important;
+    padding: 12px !important;
+  }
+
+  #ledLuz {
+    width: 45px !important;
+    height: 45px !important;
+  }
+
+  .robo-ascii-animado {
+    font-size: 1.2rem;
+  }
+
+  #btnSomSilencio,
+  #btnSomNormal,
+  #btnSomAlto,
+  #btnSomMuitoAlto {
+    font-size: 0.7rem;
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  #displayLcdSimulado {
+    font-size: 0.65rem !important;
+    padding: 8px !important;
+  }
+
+  #ledLuz {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .simulador-fala {
+    padding: 16px !important;
+  }
+
+  #btnTesteAleatorio {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+  }
+}
+
+/* ===================================================================
+   AULA 4 - VISÃO COMPUTACIONAL (Estilos Adicionais)
+   ===================================================================
+*/
+
+/* Simulador de QR Code */
+#qrCodeDisplay {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-slow);
+}
+
+#qrCodeDisplay img {
+  max-width: 200px;
+  height: auto;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  animation: fadeInScale 0.3s ease;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Botão Gerar QR Code */
+#btnGerarQRCode {
+  background: var(--grad-verde);
+  border: none;
+  transition: all var(--transition-base);
+  font-weight: 500;
+}
+
+#btnGerarQRCode:hover:not(:disabled) {
+  transform: scale(1.02);
+  background: var(--grad-verde-hover);
+  box-shadow: var(--shadow-md);
+}
+
+#btnGerarQRCode:active {
+  transform: scale(0.98);
+}
+
+/* Botão Baixar QR Code */
+#btnBaixarQRCode {
+  transition: all var(--transition-base);
+  font-weight: 500;
+}
+
+#btnBaixarQRCode:not(:disabled):hover {
+  transform: translateY(-2px);
+  background: var(--grad-grafite);
+  border-color: var(--grafite-medio);
+  color: var(--branco);
+  box-shadow: var(--shadow-md);
+}
+
+#btnBaixarQRCode:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Botões de exemplo QR Code - Estilos harmonizados com a paleta do projeto */
+.btn-qr-pronto {
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  color: var(--branco);
+  border: none;
+  transition: all var(--transition-base);
+  font-size: 0.8rem;
+  border-radius: var(--border-radius-pill);
+  padding: 0.4rem 0.8rem;
+  font-weight: 500;
+}
+
+.btn-qr-pronto:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  color: var(--branco);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-qr-pronto:active {
+  transform: scale(0.96);
+}
+
+/* Simulador de Detecção de Mãos */
+#simularMao {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border: none;
+  transition: all var(--transition-base);
+  font-weight: 500;
+  border-radius: var(--border-radius-pill);
+}
+
+#simularMao:hover {
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  box-shadow: var(--shadow-md);
+}
+
+#simularMao:active {
+  transform: scale(0.98);
+}
+
+#resultadoMao {
+  transition: all var(--transition-slow);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Animação de mão detectada */
+@keyframes maoDetectadaAnim {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.mao-detetada {
+  animation: maoDetectadaAnim 0.4s ease;
+}
+
+/* Texto do QR Code input */
+#textoQRCode {
+  border-radius: var(--border-radius-md);
+  border: 1px solid #cbd5e0;
+  transition: all var(--transition-base);
+}
+
+#textoQRCode:focus {
+  border-color: #f39c12;
+  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.25);
+  outline: none;
+}
+
+/* Tabela de dedos para a aula 4 */
+.tabela-dedos {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-md) 0;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+.tabela-dedos th,
+.tabela-dedos td {
+  border: 1px solid #dee2e6;
+  padding: 10px;
+  text-align: center;
+}
+
+.tabela-dedos th {
+  background: var(--grad-grafite);
+  color: var(--branco);
+  font-weight: 600;
+}
+
+.tabela-dedos tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Landmarks da mão */
+.hand-landmark {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  margin: 0 2px;
+}
+
+.hand-connection {
+  display: inline-block;
+  width: 15px;
+  height: 2px;
+  background-color: #f39c12;
+  margin: 0 1px;
+}
+
+/* Webcam pulse indicator */
+@keyframes webcamPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(46, 204, 113, 0);
+  }
+}
+
+.webcam-ativa {
+  animation: webcamPulse 1.5s infinite;
+  border-radius: 50%;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #2ecc71;
+}
+
+/* Log de fofocas QR */
+#logFofocasQR {
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: var(--font-size-sm);
+  background: var(--branco);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+}
+
+/* Responsividade para Aula 4 */
+@media (max-width: 768px) {
+  .btn-qr-pronto {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  #qrCodeDisplay img {
+    max-width: 150px;
+  }
+
+  .tabela-dedos {
+    font-size: 0.8rem;
+  }
+
+  .tabela-dedos th,
+  .tabela-dedos td {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn-qr-pronto {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  #qrCodeDisplay img {
+    max-width: 120px;
+  }
+
+  #resultadoMao .display-1 {
+    font-size: 2rem;
+  }
+
+  .tabela-dedos {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* Estilo para o card de QR Code */
+#qrCodeContainer {
+  transition: all var(--transition-slow);
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+  border-radius: var(--border-radius-lg) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+#qrCodeContainer:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Estilo para o container do simulador de visão */
+.simulador-visao {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  color: var(--branco);
+}
+
+.webcam-placeholder {
+  background: #0d1117;
+  border-radius: var(--border-radius-md);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--grafite-claro);
+}
+
+/* Cards de conceitos da aula 4 */
+#conteudoConceitos .alert-secondary {
+  background: #e9ecef;
+  border: none;
+  transition: all var(--transition-base);
+  border-radius: var(--border-radius-md);
+}
+
+#conteudoConceitos .alert-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  background: #dee2e6;
+}
+
+/* Badge de QR Code */
+.badge-qr {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 4px 10px;
+  border-radius: var(--border-radius-pill);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Indicador de detecção ativa */
+.deteccao-ativa {
+  position: relative;
+}
+
+.deteccao-ativa::after {
+  content: "🔴";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 12px;
+  animation: blinkRed 1s infinite;
+}
+
+@keyframes blinkRed {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Animações extras */
+@keyframes escalaPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.escala-pulse {
+  animation: escalaPulse 0.3s ease;
+}
+
+/* Toast de sucesso */
+.toast-sucesso-checklist {
+  position: relative;
+  z-index: 100;
+  border-radius: 12px;
+  border-left: 4px solid #28a745;
+}
+
+/* ===================================================================
+   AULA 7 - MAPA DO INFERNO ACÚSTICO (Estilos Adicionais)
+   ===================================================================
+*/
+
+/* Estilos para os canvases */
+#canvasLinha,
+#canvasHeatmap {
+  background: #1a1a2e;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#canvasLinha:hover,
+#canvasHeatmap:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.2);
+}
+
+/* Container dos gráficos */
+#graficoLinhaSimulado,
+#heatmapSimulado {
+  background: #0d1117 !important;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Cores para os níveis de dB na tabela */
+.db-alto {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  font-weight: bold;
+}
+
+.db-medio {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+}
+
+.db-baixo {
+  background-color: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+/* Tabela de dados simulados */
+#tabelaDadosSimulados {
+  font-size: 0.85rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#tabelaDadosSimulados thead th {
+  background: linear-gradient(135deg, #2d3748, #1a202c);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 8px;
+}
+
+#tabelaDadosSimulados tbody td {
+  padding: 8px;
+  vertical-align: middle;
+}
+
+/* Botão atualizar dados */
+#atualizarDados {
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  border: none;
+  color: #fff;
+  transition: all 0.2s ease;
+  border-radius: 40px;
+  padding: 6px 16px;
+}
+
+#atualizarDados:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #5a6578, #3d475c);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#atualizarDados:active {
+  transform: scale(0.96);
+}
+
+/* Estatísticas da simulação */
+#estatisticasSimulacao {
+  font-weight: 600;
+  color: #2c3e50;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 40px;
+  display: inline-block;
+}
+
+/* Responsividade para Aula 7 */
+@media (max-width: 768px) {
+
+  #canvasLinha,
+  #canvasHeatmap {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  #tabelaDadosSimulados {
+    font-size: 0.7rem;
+  }
+
+  #tabelaDadosSimulados th,
+  #tabelaDadosSimulados td {
+    padding: 6px 4px;
+  }
+
+  #estatisticasSimulacao {
+    font-size: 0.8rem;
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  #tabelaDadosSimulados {
+    font-size: 0.65rem;
+  }
+
+  .simulador-fala {
+    padding: 16px !important;
+  }
+}
+
+/* ===================================================================
+   AULA 8 - PROTÓTIPO COMPLETO INTEGRADO (Estilos Específicos)
+   ===================================================================
+*/
+
+/* Botões do menu integrado */
+.btn-modulo {
+  transition: all 0.2s ease;
+  font-weight: 500;
+  padding: 10px 8px;
+}
+
+.btn-modulo:hover {
+  transform: translateY(-2px);
+  background: var(--grad-grafite);
+  color: var(--branco);
+  border-color: var(--grafite-medio);
+}
+
+.btn-modulo:active {
+  transform: scale(0.96);
+}
+
+/* Botão Modo Automático */
+#btnModoAutomatico {
+  background: linear-gradient(135deg, #27ae60, #1e8449);
+  border: none;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+#btnModoAutomatico:hover {
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  box-shadow: 0 4px 20px rgba(46, 204, 113, 0.4);
+}
+
+#btnModoAutomatico:active {
+  transform: scale(0.98);
+}
+
+/* Área de saída do robô */
+#saidaRobo {
+  background: #0d1117 !important;
+  color: #e6edf3;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  min-height: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+  border-radius: 12px;
+}
+
+#saidaRobo .text-success {
+  color: #2ecc71 !important;
+}
+
+#saidaRobo .text-warning {
+  color: #f39c12 !important;
+}
+
+#saidaRobo .text-danger {
+  color: #e74c3c !important;
+}
+
+#saidaRobo .text-info {
+  color: #3498db !important;
+}
+
+/* Inputs do simulador integrado */
+#perguntaIaSimulador,
+#fraseFalaSimulador {
+  border-radius: 12px;
+  border: 1px solid #cbd5e0;
+  transition: all 0.2s ease;
+}
+
+#perguntaIaSimulador:focus,
+#fraseFalaSimulador:focus {
+  border-color: #f39c12;
+  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.25);
+  outline: none;
+}
+
+#btnEnviarPerguntaSimulador,
+#btnEnviarFalaSimulador {
+  background: var(--grad-verde);
+  border: none;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+}
+
+#btnEnviarPerguntaSimulador:hover,
+#btnEnviarFalaSimulador:hover {
+  transform: scale(1.02);
+  background: var(--grad-verde-hover);
+}
+
+/* Frases prontas IA */
+.btn-frase-ia-sim {
+  transition: all 0.2s ease;
+  border-radius: 40px;
+}
+
+.btn-frase-ia-sim:hover {
+  transform: translateY(-2px);
+  background: var(--grad-azul);
+  border-color: #2980b9;
+  color: var(--branco);
+}
+
+.btn-frase-ia-sim:active {
+  transform: scale(0.95);
+}
+
+/* Animações para o simulador integrado */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.simulador-integrado-mensagem {
+  animation: fadeInUp 0.3s ease;
+}
+
+/* Scrollbar personalizada para área de saída */
+#saidaRobo::-webkit-scrollbar {
+  width: 6px;
+}
+
+#saidaRobo::-webkit-scrollbar-track {
+  background: #1a1a2e;
+  border-radius: 10px;
+}
+
+#saidaRobo::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 10px;
+}
+
+#saidaRobo::-webkit-scrollbar-thumb:hover {
+  background: #f39c12;
+}
+
+/* Responsividade Aula 8 */
+@media (max-width: 768px) {
+  .btn-modulo {
+    font-size: 0.7rem;
+    padding: 8px 4px;
+  }
+
+  .btn-modulo i {
+    font-size: 0.9rem;
+  }
+
+  #btnModoAutomatico {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  #saidaRobo {
+    font-size: 0.75rem;
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn-modulo {
+    font-size: 0.6rem;
+    padding: 6px 2px;
+  }
+
+  .btn-modulo i {
+    font-size: 0.8rem;
+  }
+
+  #btnModoAutomatico {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+/* ===================================================================
+   AULA 9 - ROTEIRO PARA MANIFESTO E VÍDEO (Estilos Específicos)
+   ===================================================================
+*/
+
+/* Manifesto Cards */
+.manifesto-card {
+  transition: all var(--transition-base);
+  cursor: pointer;
+  background: var(--branco);
+}
+
+.manifesto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, #fff9e6, #fff4d6);
+}
+
+.manifesto-container {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 24px;
+}
+
+/* Botões de download da Aula 9 */
+#btnDownloadRoteiro,
+#btnDownloadManifesto {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  border: none;
+  color: var(--branco);
+  font-weight: 600;
+  border-radius: var(--border-radius-pill);
+  padding: 10px;
+  transition: all var(--transition-base);
+  font-size: var(--font-size-sm);
+}
+
+#btnDownloadRoteiro:hover,
+#btnDownloadManifesto:hover {
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  color: #fff8e7;
+}
+
+#btnDownloadRoteiro i,
+#btnDownloadManifesto i {
+  margin-right: 8px;
+}
+
+/* Tabela de autoavaliação */
+.autoavalia-nota {
+  width: 80px;
+  text-align: center;
+}
+
+#resultadoAutoavaliacao {
+  font-size: 0.9rem;
+  padding: 12px;
+  border-radius: 12px;
+  background: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  display: none;
+}
+
+#resultadoAutoavaliacao.show {
+  display: block;
+  animation: fadeInUp 0.3s ease;
+}
+
+/* Gerador de roteiro personalizado */
+#roteiroGeradoContainer {
+  animation: fadeInUp 0.4s ease;
+}
+
+#roteiroGerado {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #0d1117;
+  color: #e6edf3;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+#btnCopiarRoteiro {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--branco);
+  transition: all var(--transition-base);
+}
+
+#btnCopiarRoteiro:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.02);
+}
+
+/* Responsividade Aula 9 */
+@media (max-width: 768px) {
+  .manifesto-card {
+    margin-bottom: 16px;
+  }
+
+  .manifesto-card .lead {
+    font-size: 1rem;
+  }
+
+  .manifesto-card .display-1 {
+    font-size: 2rem;
+  }
+
+  #btnDownloadRoteiro,
+  #btnDownloadManifesto {
+    font-size: 0.7rem;
+    padding: 8px;
+  }
+
+  .autoavalia-nota {
+    width: 60px;
+  }
+}
+
+@media (max-width: 576px) {
+  .manifesto-container {
+    padding: 16px !important;
+  }
+
+  .manifesto-card .lead {
+    font-size: 0.85rem;
+  }
+
+  #roteiroGerado {
+    font-size: 0.7rem;
+    padding: 12px;
+  }
+}
+
+/* Cores para tabela de etapas da Aula 9 */
+.tabela-etapas td:first-child {
+  font-weight: 600;
+  background-color: #f8f9fa;
+}
+
+/* Badge para links do Colab */
+.badge-colab {
+  background: linear-gradient(135deg, #f9ab00, #f29900);
+  color: #1a202c;
+  font-weight: 600;
+}
+
+/* ===================================================================
+   AULA 10 - VERSÃO OFFLINE COMPLETA (Estilos Específicos)
+   ===================================================================
+*/
+
+/* Status Offline */
+#statusOffline {
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
+  border: none;
+  border-left: 4px solid #28a745;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+#statusOffline i {
+  font-size: 1.2rem;
+  margin-right: 8px;
+}
+
+/* Simulador Markov */
+#perguntaMarkov {
+  border-radius: 12px;
+  border: 1px solid #cbd5e0;
+  transition: all 0.2s ease;
+}
+
+#perguntaMarkov:focus {
+  border-color: #f39c12;
+  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.25);
+  outline: none;
+}
+
+#btnGerarMarkov {
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  border: none;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+}
+
+#btnGerarMarkov:hover {
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #5a6578, #3d475c);
+}
+
+#respostaMarkov {
+  background: linear-gradient(135deg, #e8f4f8, #d1ecf1);
+  border: none;
+  border-left: 4px solid #17a2b8;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+/* Simulador Vosk */
+#btnSimularVoz {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  border: none;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+  padding: 10px 24px;
+}
+
+#btnSimularVoz:hover {
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+}
+
+#resultadoVosk {
+  background: #f8f9fa;
+  border-left: 4px solid #6c757d;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+/* Simulador PyInstaller */
+#btnSimularPyInstaller {
+  background: linear-gradient(135deg, #27ae60, #1e8449);
+  border: none;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+  padding: 10px 24px;
+}
+
+#btnSimularPyInstaller:hover {
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+}
+
+#resultadoPyInstaller {
+  background: #f8f9fa;
+  border-left: 4px solid #6c757d;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+/* Script de Teste */
+#btnTestarTudo {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  border: none;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+  padding: 10px 24px;
+}
+
+#btnTestarTudo:hover {
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+}
+
+#resultadoTeste {
+  background: #f8f9fa;
+  border-left: 4px solid #6c757d;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+/* Tutorial PDF */
+#btnGerarTutorialSim {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border: none;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+  padding: 10px 24px;
+}
+
+#btnGerarTutorialSim:hover {
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #2c81ba, #2471a3);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Resultados com animação */
+#resultadoVosk .text-success,
+#resultadoPyInstaller .text-success,
+#resultadoTeste .text-success {
+  font-weight: 600;
+}
+
+#resultadoVosk .text-warning,
+#resultadoPyInstaller .text-warning,
+#resultadoTeste .text-warning {
+  font-weight: 600;
+}
+
+/* Animação de pulso para os resultados */
+@keyframes resultadoPulse {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resultado-atualizado {
+  animation: resultadoPulse 0.3s ease;
+}
+
+/* Responsividade Aula 10 */
+@media (max-width: 768px) {
+
+  #btnGerarMarkov,
+  #btnSimularVoz,
+  #btnSimularPyInstaller,
+  #btnTestarTudo,
+  #btnGerarTutorialSim {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+  }
+
+  #perguntaMarkov {
+    font-size: 0.8rem;
+  }
+
+  #respostaMarkov,
+  #resultadoVosk,
+  #resultadoPyInstaller,
+  #resultadoTeste {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+
+  #btnGerarMarkov,
+  #btnSimularVoz,
+  #btnSimularPyInstaller,
+  #btnTestarTudo,
+  #btnGerarTutorialSim {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+
+  #respostaMarkov,
+  #resultadoVosk,
+  #resultadoPyInstaller,
+  #resultadoTeste {
+    font-size: 0.7rem;
+    padding: 10px !important;
+  }
+}
+
+/* ===================================================================
+   MATERIAL COMPLEMENTAR (AULA 11) - Estilos Adicionais
+   ===================================================================
+*/
+
+/* Cards de download na área de downloads */
+#conteudoDownloads .etapa-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#conteudoDownloads .etapa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+#conteudoDownloads .btn-outline-primary {
+  border-radius: 40px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+#conteudoDownloads .btn-outline-primary:hover {
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  border-color: transparent;
+  transform: scale(1.02);
+}
+
+/* Área do professor - melhorias visuais */
+#conteudoProfessor .bg-grafite-claro {
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  color: white;
+  border-radius: 0 12px 12px 0;
+}
+
+#conteudoProfessor .icone-prof {
+  font-size: 4rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+#btnExportarDicas {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  border: none;
+  color: white;
+  border-radius: 40px;
+  padding: 8px 20px;
+  transition: all 0.2s ease;
+}
+
+#btnExportarDicas:hover {
+  transform: scale(1.02);
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+  box-shadow: 0 4px 12px rgba(230, 126, 34, 0.4);
+}
+
+/* Estatísticas e badges */
+.badge-bncc {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #ecf0f1;
+  padding: 6px 12px;
+  border-radius: 40px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+  margin: 3px;
+}
+
+/* Cards de avaliação */
+#conteudoAvaliacao .bg-inclusao {
+  background: linear-gradient(135deg, #fef9e7, #fef5e7);
+  border-left: 6px solid #f39c12;
+}
+
+/* Responsividade Material Complementar */
+@media (max-width: 768px) {
+  #conteudoDownloads .etapa-card {
+    margin-bottom: 16px;
+  }
+
+  #conteudoDownloads .etapa-icon {
+    font-size: 2rem;
+  }
+
+  #conteudoProfessor .bg-grafite-claro {
+    border-radius: 0 0 12px 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  #conteudoDownloads .etapa-card h5 {
+    font-size: 1rem;
+  }
+
+  #conteudoDownloads .etapa-card .small {
+    font-size: 0.7rem;
+  }
+
+  #conteudoDownloads .btn-outline-primary {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+}
